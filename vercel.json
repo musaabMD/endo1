@@ -1,17 +1,8 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "next.config.mjs",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_GLADIA_API_KEY": "c2105b1e-db8c-4ba6-9361-bb00b1226e60"
   }
