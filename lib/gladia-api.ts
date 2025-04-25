@@ -23,11 +23,14 @@ export interface GladiaTranscriptMessage {
 
 export async function initializeGladiaSession(): Promise<GladiaSessionResponse> {
   try {
+    // Get API key from environment variable with fallback
+    const apiKey = process.env.NEXT_PUBLIC_GLADIA_API_KEY || "c2105b1e-db8c-4ba6-9361-bb00b1226e60"
+    
     const response = await fetch("https://api.gladia.io/v2/live", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-gladia-key": "c2105b1e-db8c-4ba6-9361-bb00b1226e60",
+        "x-gladia-key": apiKey,
       },
       body: JSON.stringify({
         encoding: "wav/pcm",
